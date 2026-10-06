@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const links = [
@@ -23,21 +24,15 @@ export default function Navbar() {
         className="rounded-3xl bg-[#202020] px-5 text-white sm:px-8"
       >
         <div className="flex min-h-20 items-center justify-between">
-          <Link
-            href="/"
-            aria-label="HireLoop home"
-            className="flex items-center text-3xl font-bold tracking-tight"
-          >
-            <span className="text-[#168BFF]">hire</span>
-            <span className="-ml-0.5 text-[#FF6A00]">l</span>
-            <span
-              aria-hidden="true"
-              className="relative mx-0.5 inline-flex items-center"
-            >
-              <span className="absolute left-0 h-6 w-6 rounded-full border-[5px] border-[#168BFF]" />
-              <span className="ml-3 h-6 w-6 rounded-full border-[5px] border-[#FF6A00]" />
-            </span>
-            <span className="-ml-0.5 text-[#FF6A00]">p</span>
+          <Link href="/" aria-label="HireLoop home" className="shrink-0">
+            <Image
+              src="/logo.svg"
+              alt="HireLoop"
+              width={230}
+              height={66}
+              preload
+              className="h-auto w-38.5 sm:w-45 lg:w-57.5"
+            />
           </Link>
 
           <ul className="hidden items-center gap-10 lg:flex">

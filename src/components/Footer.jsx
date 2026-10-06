@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { LogoFacebook, LogoLinkedin } from "@gravity-ui/icons";
 
@@ -33,15 +34,15 @@ function BrandLogo() {
     <Link
       href="/"
       aria-label="HireLoop home"
-      className="inline-flex items-center text-[32px] font-bold leading-none tracking-tight"
+      className="inline-flex h-11 w-38.5 shrink-0"
     >
-      <span className="text-[#168BFF]">hire</span>
-      <span className="-ml-0.5 text-[#FF6A00]">l</span>
-      <span aria-hidden="true" className="relative mx-0.5 inline-flex items-center">
-        <span className="absolute left-0 h-6 w-6 rounded-full border-[5px] border-[#168BFF]" />
-        <span className="ml-3 h-6 w-6 rounded-full border-[5px] border-[#FF6A00]" />
-      </span>
-      <span className="-ml-0.5 text-[#FF6A00]">p</span>
+      <Image
+        src="/logo.svg"
+        alt="HireLoop"
+        width={154}
+        height={44}
+        className="h-11 w-38.5 object-contain"
+      />
     </Link>
   );
 }
@@ -63,8 +64,8 @@ function SocialIcon({ name }) {
 }
 
 const socials = [
-  { name: "facebook" , label: "Facebook", href: "#", featured: false },
-  { name: "pinterest" , label: "Pinterest", href: "#", featured: true },
+  { name: "facebook", label: "Facebook", href: "#", featured: false },
+  { name: "pinterest", label: "Pinterest", href: "#", featured: true },
   { name: "linkedin", label: "LinkedIn", href: "#", featured: false },
 ];
 
@@ -124,7 +125,7 @@ export default function Footer() {
         </ul>
 
         <div className="flex flex-col gap-2 text-sm leading-[1.9] text-[#ACABB2] sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
-          <p className="opacity-70">Copyright 2024 —Programming Hero</p>
+          <p className="opacity-70">Copyright 2026 — GuyGatsby</p>
           <p>
             <Link href="/terms" className="hover:text-white">
               Terms &amp; Policy
