@@ -123,7 +123,7 @@ export default function Navbar() {
 
               <li>
                 <Link
-                  href="/sign-in"
+                  href="/auth/signin"
                   onClick={closeMenu}
                   className="block rounded-xl px-3 py-3 font-medium text-[#948DFF] transition hover:bg-white/10"
                 >
