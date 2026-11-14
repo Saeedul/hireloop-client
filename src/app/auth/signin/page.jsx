@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 import {
   Alert,
@@ -49,7 +49,6 @@ function getErrorMessage(error) {
 }
 
 function SignInForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl");
   const redirectTo = getSafeRedirect(callbackUrl);
@@ -119,9 +118,11 @@ function SignInForm() {
       setRedirecting(true);
 
       redirectTimer.current = setTimeout(() => {
-        // replace() so the back button doesn't return to the sign-in page
-        router.replace(redirectTo);
-        router.refresh();
+        // Full navigation so the whole app picks up the new session cookie.
+        // replace() so the back button doesn't return to the sign-in page.
+        // (router.replace + router.refresh raced: refresh re-fetched the
+        // sign-in route and cancelled the navigation, leaving it stuck.)
+        window.location.replace(redirectTo);
       }, REDIRECT_DELAY_MS);
     } catch {
       setMessage({

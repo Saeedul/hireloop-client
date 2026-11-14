@@ -51,7 +51,7 @@ export default function Navbar() {
 
             <li>
               <Link
-                href="/sign-in"
+                href="/auth/signin"
                 className="font-medium text-[#7167FF] transition hover:text-[#948DFF]"
               >
                 Sign In
