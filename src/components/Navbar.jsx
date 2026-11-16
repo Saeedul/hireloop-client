@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "@/lib/auth-client";
 
 const links = [
   { label: "Browse Jobs", href: "/jobs" },
@@ -12,6 +13,7 @@ const links = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {data:session, } = useSession(); // resume from here
 
   function closeMenu() {
     setIsMenuOpen(false);
